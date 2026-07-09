@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — MixAIMax</title>
+<meta name="description" content="Get in touch with MixAIMax's AI Toolkit Hub team for tool recommendations, listing corrections, or partnership questions." />
+<link rel="canonical" href="https://www.mixaimax.example/contact.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Contact — MixAIMax" />
+<meta property="og:description" content="Reach the AI Toolkit Hub team for recommendations, corrections, or partnerships." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" class="brand" aria-label="MixAIMax — AI Toolkit Hub, go to homepage">
+      <span class="brand-logo"><img src="assets/logo-compact.png" alt="MixAIMax" width="87" height="30" /></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tools.html">AI Tools</a></li>
+      <li><a href="categories.html">Categories</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta active">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+      <span class="eyebrow">We reply within one business day</span>
+      <h1>Ask for a recommendation, or flag a correction</h1>
+      <p>Tell us what you're trying to solve, or point out something we got wrong on a listing. A real reviewer reads every message.</p>
+    </div>
+  </section>
+
+  <section class="section" style="border-bottom:none;">
+    <div class="container contact-grid">
+
+      <form data-contact-form novalidate>
+        <div class="field" data-field data-rule="required">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="Jordan Lee" />
+          <span class="field-error">Enter your name.</span>
+        </div>
+
+        <div class="field" data-field data-rule="email">
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" placeholder="jordan@company.com" />
+          <span class="field-error">Enter a valid email address.</span>
+        </div>
+
+        <div class="field" data-field data-rule="required">
+          <label for="topic">What's this about</label>
+          <select id="topic" name="topic">
+            <option value="recommendation">Tool recommendation request</option>
+            <option value="correction">Listing correction</option>
+            <option value="partnership">Partnership inquiry</option>
+            <option value="other">Something else</option>
+          </select>
+          <span class="field-error">Choose a topic.</span>
+        </div>
+
+        <div class="field" data-field data-rule="minlength10">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Describe your stack and what you're trying to solve..."></textarea>
+          <span class="field-error">Add a bit more detail (10+ characters).</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        <div class="form-status" role="status"></div>
+      </form>
+
+      <div>
+        <div class="contact-info-card">
+          <h3>Editorial &amp; corrections</h3>
+          <p>editorial@mixaimax.example</p>
+        </div>
+        <div class="contact-info-card">
+          <h3>Partnerships</h3>
+          <p>partners@mixaimax.example</p>
+        </div>
+        <div class="contact-info-card">
+          <h3>Response time</h3>
+          <p>We read every message and reply within one business day, Monday through Friday.</p>
+        </div>
+
+        <div style="margin-top:32px;">
+          <span class="eyebrow">FAQ</span>
+          <details class="faq-item">
+            <summary>Can vendors pay to be listed?</summary>
+            <p>No. Ratings and placement come only from sandbox testing results, not payment or advertising.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How often are tools re-reviewed?</summary>
+            <p>Every listed tool goes through a re-check on a 90-day cycle, or sooner after a major release.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you cover open-source tools?</summary>
+            <p>Yes. Open-source and self-hosted tools are reviewed with the same checklist as commercial products.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I suggest a tool to review?</summary>
+            <p>Yes — use the form and select "Tool recommendation request," including a link to the product.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="MixAIMax — AI Toolkit Hub, go to homepage">
+          <span class="brand-logo"><img src="assets/logo-full.png" alt="MixAIMax — AI Toolkit Hub" width="81" height="34" /></span>
+        </a>
+        <p>Independent reviews and benchmarks of AI tools for IT professionals, updated monthly.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="tools.html">AI Tools</a>
+        <a href="categories.html">Categories</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="tools.html">Latest reviews</a>
+        <a href="categories.html">Comparison guides</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> AI Toolkit Hub. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#" aria-label="AI Toolkit Hub on X">X</a>
+        <a href="#" aria-label="AI Toolkit Hub on LinkedIn">in</a>
+        <a href="#" aria-label="AI Toolkit Hub on GitHub">Gh</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
