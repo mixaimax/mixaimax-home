@@ -2,14 +2,26 @@
    AI TOOLKIT HUB — shared script
    ========================================================= */
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initHeaderScroll();
+  initActiveNavA11y();
   initTerminal();
   initToolFilter();
   initContactForm();
   initFooterYear();
+  initScrollReveal();
+  initBackToTop();
 });
+
+/* ---------- Mark the current page for assistive tech ---------- */
+function initActiveNavA11y() {
+  document.querySelectorAll(".nav-links a.active").forEach((a) => {
+    a.setAttribute("aria-current", "page");
+  });
+}
 
 /* ---------- Mobile nav ---------- */
 function initNav() {
@@ -73,6 +85,12 @@ function initTerminal() {
   cursor.className = "terminal-cursor";
   cmdEl.after(cursor);
 
+  if (prefersReducedMotion) {
+    cmdEl.textContent = command;
+    showResults();
+    return;
+  }
+
   function typeChar() {
     if (i < command.length) {
       cmdEl.textContent += command.charAt(i);
@@ -119,9 +137,15 @@ function initToolFilter() {
   if (!chips.length || !cards.length) return;
 
   chips.forEach((chip) => {
+    chip.setAttribute("aria-pressed", chip.classList.contains("is-active") ? "true" : "false");
+
     chip.addEventListener("click", () => {
-      chips.forEach((c) => c.classList.remove("is-active"));
+      chips.forEach((c) => {
+        c.classList.remove("is-active");
+        c.setAttribute("aria-pressed", "false");
+      });
       chip.classList.add("is-active");
+      chip.setAttribute("aria-pressed", "true");
       const filter = chip.getAttribute("data-filter");
       let visibleCount = 0;
 
@@ -193,4 +217,46 @@ function initFooterYear() {
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
+}
+
+/* ---------- Scroll-reveal on entry ---------- */
+function initScrollReveal() {
+  const targets = document.querySelectorAll("[data-reveal], [data-reveal-group]");
+  if (!targets.length) return;
+
+  if (prefersReducedMotion) {
+    targets.forEach((t) => t.classList.add("is-visible"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+  );
+
+  targets.forEach((t) => io.observe(t));
+}
+
+/* ---------- Back to top ---------- */
+function initBackToTop() {
+  const btn = document.createElement("button");
+  btn.className = "back-to-top";
+  btn.setAttribute("aria-label", "Back to top");
+  btn.innerHTML = "&uarr;";
+  document.body.appendChild(btn);
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  });
+
+  const setState = () => btn.classList.toggle("show", window.scrollY > 500);
+  setState();
+  window.addEventListener("scroll", setState, { passive: true });
 }
